@@ -1,0 +1,85 @@
+#include"stdafx.h"
+#include "iostream"
+#include "cstdio"
+#include "conio.h"
+using namespace std;
+
+
+
+#define MAX 50
+
+
+int aux;
+
+
+void cargar(int V[], int t)
+{
+	for (int i = 0; i<t; i++)
+	{
+		cout << "V[" << i + 1 << "]=";
+		cin >> V[i];
+		
+	}
+}
+
+void unirVec(int V3[], int V1[], int V2[], int t1, int t2)
+{
+	for (int i = 0; i<t1; i++)
+	{
+		V3[i] = V1[i];
+	}
+	for (int i = t1; i<(t1 + t2); i++)
+	{
+		V3[i] = V2[i-t1];
+	}
+
+	for (int i = 0; i < (t1 + t2); i++)
+	{
+		cout << V3[i] << " ";
+	}
+
+}
+void ordenar(int V3[], int t1, int t2)
+{
+	for (int i = 0; i < (t1 + t2)-1; i++)
+	{
+		for (int j = i + 1; j < (t1 + t2); j++)
+		{
+			if (V3[i] < V3[j])
+			{
+				aux = V3[i];
+				V3[i] = V3[j];
+					V3[j] = aux;
+
+			}
+		}
+	}
+	for (int i = 0; i < (t1 + t2); i++)
+	{
+		cout << V3[i] << " ";
+	}
+}
+
+void main()
+{
+	int V1[50], V2[50], V3[50], t1, t2;
+	do {
+		
+		cout << "Ingre cant de V1" << endl;
+		cin >> t1;
+		
+	} while (t1 < 1);
+		cout << "Ingrese elementos de V1" << endl;
+		cargar(V1, t1);
+		do {
+			cout << "Ingre cant de V2" << endl;
+			cin >> t2;
+		} while (t2 < 1);
+		cout << "Ingrese elementos de V2" << endl;
+		cargar(V2, t2);
+		unirVec(V3, V1, V2, t1, t2);
+		cout << "El Vector ordenado descendentemente es:" << endl;
+		ordenar(V3, t1, t2);
+		_getch();
+
+	}

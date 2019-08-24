@@ -1,0 +1,64 @@
+#include"stdafx.h"
+#include "iostream"
+#include "cstdio"
+#include "conio.h"
+#define MAX 50
+
+
+using namespace std;
+int fibo( int n);
+void cargar_fibo(int vec[], int n);
+void mostrar(int vec[], int n);
+
+int main()
+{
+	int vec[MAX], n;
+	int a = 1, b = 1, c = 1;
+
+	cout << "Ingrese el enesimo termino de fibonacci" << endl;
+	cin >> n;
+	cargar_fibo(vec, n);
+	cout << "Los N fibonacci son" << endl;
+
+	mostrar(vec, n);
+
+	_getch();
+	return 0;
+
+
+
+}
+
+
+int fibo( int n)
+{
+	int fibo = 0, a = 0, b = 1, k =1;
+	while (k < n)
+	{
+		fibo = a + b;
+		b = a;
+		a = fibo;
+		k++;
+		
+	}
+	return fibo;
+
+}
+void cargar_fibo(int vec[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		vec[i] = fibo(i + 1);
+
+
+	}
+
+}
+void mostrar(int vec[], int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout << vec[i] << " ";
+	}
+
+}

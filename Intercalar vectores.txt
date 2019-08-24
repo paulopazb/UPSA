@@ -1,0 +1,91 @@
+#include"stdafx.h"
+#include "iostream"
+#include "cstdio"
+#include "conio.h"
+#define MAX 50
+using namespace std;
+
+void cargar_A(int A[], int t1);
+void cargar_B(int B[], int t2);
+void intercalarA_B(int C[], int A[], int B[], int t1, int t2);
+
+void main()
+{
+	int A[MAX], B[MAX], C[MAX], t1,t2;
+	int i;
+	do {
+		cout << "Ingrese la cantidad de elementos del vector A" << endl;
+		cin >> t1;
+	} while (t1<1);
+	cargar_A(A, t1);
+
+	do {
+		cout << "Ingrese la cantidad de elementos del vector B" << endl;
+		cin >> t2;
+	} while (t2<1);
+	cargar_B(B, t2);
+	intercalarA_B( C,A, B, t1, t2);
+	_getch();
+
+}
+
+void cargar_A(int A[], int t1)
+{
+	int aux,j;
+	for (int i = 0; i <t1; i++)
+	{
+		cout << "v[" << i + 1 << "]=";
+		cin >> A[i];
+	}
+	for (int i = 0; i<t1; i++) {
+		for (j = 0; j<t1 - 1; j++) {
+			if (A[j]>A[j + 1]) {
+				aux = A[j];
+				A[j] = A[j + 1];
+				A[j + 1] = aux;
+			}
+		}
+	}
+}
+void cargar_B(int B[], int t2)
+{
+	int j, aux;
+	for (int i = 0; i < t2; i++)
+	{
+		cout << "v[" << i + 1 << "]=";
+		cin >> B[i];
+	}
+	for (int i = 0; i<t2; i++) {
+		for (j = 0; j<t2 - 1; j++) {
+			if (B[j]>B[j + 1]) {
+				aux = B[j];
+				B[j] = B[j + 1];
+				B[j + 1] = aux;
+			}
+		}
+	}
+}
+void intercalarA_B(int C[], int A[], int B[],int t1, int t2)
+{
+	int p;
+	
+	p = 0;
+	for (int i = 0; i < (t1); i++)
+	{
+		
+		 
+		C[p] = A[i];
+		p = p + 2;
+	}
+	p = 1;
+	for (int i = 0; i < (t2); i++)
+	{
+		C[p] = B[i];
+		p = p + 2;
+	}
+	for (int i = 0; i < (t1 + t2); i++)
+	{
+		p = p + 2;
+		cout << C[i] << " ";
+	}
+}

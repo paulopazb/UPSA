@@ -1,0 +1,58 @@
+// Simulacro1.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include <iostream> 
+#include "cstdio"
+#include "conio.h"
+#define MAX 50
+
+using namespace std;
+
+void cargar(int vec[], int n);
+void mostrar(int vec[], int n);
+int moda(int vec[], int n);
+
+void main() {
+	int vec[MAX], n;
+	cout << "Ingrese N: ";
+	cin >> n;
+	cargar(vec, n);
+	mostrar(vec, n);
+	cout << endl << "La moda es " << moda(vec, n);
+	_getch();
+}
+
+void cargar(int vec[], int n) {
+	for (int i = 0; i<n; i++) {
+		cin >> vec[i];
+	}
+}
+
+void mostrar(int vec[], int n) {
+	for (int i = 0; i<n; i++) {
+		cout << vec[i] << " ";
+	}
+}
+
+int moda(int vec[], int n) {
+	int cant_rep = 0, max_rep = 0, valor, moda = 0;
+	for (int i = 0; i<n; i++) {
+		for (int j = 0; j<n; j++) {
+			if (vec[i] == vec[j]) {
+				cant_rep++;
+				valor = vec[i];
+			}
+		}
+		if (cant_rep>max_rep) {
+			max_rep = cant_rep;
+			moda = valor;
+			cout << "\n Se repite" << cant_rep << "veces" << endl;
+			
+		}	
+	
+		cant_rep = 0;
+	}
+
+	return moda;
+}

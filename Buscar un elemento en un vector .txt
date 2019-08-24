@@ -1,0 +1,63 @@
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+#include "cstdio"
+#define MAX 50
+
+using namespace std;
+void cargar(int V[], int n);
+void buscar(int V[], int n, int x);
+
+
+
+
+
+int main()
+{
+	int V[MAX], n,x;
+	cout << "Ingrese N" << endl;
+	cin >> n;
+	cargar(V, n);
+	cout << "Ingrese X" << endl;
+	cin >> x;
+	buscar(V, n,x);
+	_getch();
+    return 0;
+}
+
+
+	
+
+	void cargar(int V[], int n)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			cout << "v[" << i + 1 << "]=";
+			cin >> V[i];
+
+		}
+	}
+
+	void buscar(int V[], int n, int x)
+	{
+		int k = 0;
+		for (int i = 0; i < n; i++)
+		{
+			
+			if (V[i] == x)
+			{
+				k = 1;
+				
+			}
+			if (k==0)
+			{
+				cout << "No encontrado";
+			}
+			else { cout << "Encontrado"; }
+				
+
+		}
+
+
+
+	}

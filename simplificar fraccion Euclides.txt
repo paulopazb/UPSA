@@ -1,0 +1,39 @@
+#include "stdafx.h"
+#include "iostream"
+#include "stdlib.h"
+#include "math.h"
+#include "conio.h"
+#include "stdio.h"
+
+
+using namespace std;
+int mcd(int a, int b);
+
+
+void main()
+{
+	int a, b, m;
+	cout << "Ingrese Numerador" << endl;
+	cin >> a;
+	cout << "Ingrese denominador" << endl;
+	cin >> b;
+	m = mcd(a, b);
+	a = a / m;
+	b = b / m;
+	
+	cout << "La fraccion simplificada es:" << a << "/" << b << endl;
+	_getch();
+
+}
+int mcd(int a, int b)
+{
+	int r = 0;
+	while (b != 0)
+	{
+		r = a % b;
+		a = b;
+		b = r;
+	}
+	return a;
+
+}

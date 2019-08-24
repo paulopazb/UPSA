@@ -1,0 +1,56 @@
+cin.getline(nombre, cantidad)  guardar/lee una cadena de caracteres
+longitud=strlen(palabra)  devuelve la cantidad de elementos de la cadena incluyendo esapacios y simbolos
+strcpy(cadenas vacía, cadena a copiar)    copiar una cadena en otra
+if (strcmp(cadena1, cadena2) == 0) compara dos cadenas
+
+if (strcmp(cadena1, cadena2) </> 0) Para indicar cual cadena es mayor alfabeticamente
+strcat_s(cadfinal, cadena que se añade); añade el resto de una cadena a otra cadena
+_strrev(cadena) invierte una cadena
+strupr  convierte a mayusculas una cadena
+strlwr convierte en minusculas la cadena
+atoi, atoif convierte cadena de numeros en valor numerico
+
+Sizeof() //Determina el numero de bytes de la estructura a maneja; Cada caracter ocupa un byte
+For example:
+sizeof(int);
+
+
+Clase stream
+
+String.h || <string>//Cabecera
+getline(cin,nombre)
+
+empty()// Indica si una cadena esta vacía
+Example:
+Por verdad devuelve true
+Por falso devuelve false;
+ string c;
+int y=c.empty()
+
+substr(posicion desde la cual se desea extraer,numcaracter a colocar)//Permite substraer cierta cantidad de caracteres
+  **No da error cuando intenta leer a partir de el ultimo caracter**
+	**Bota basura si se sale del rango de la cadena***
+
+
+size()//indica el tamaño de la cadena
+Example:
+c.size()
+
+replace(posicion desde la cual se desea reemplazar,numcaracter a colocar)
+c.replace()
+
+remove()
+find()
+Example
+c="Hola Mundo"
+   0123 45
+int y=c.find('N') // Retorna la posicion en la que se encuentra la letra, toma la posicion de la primera que encuentra
+
+rfind()// Hace lo mismo que
+find_first_of(patron,posicion)
+find_last_of(patron,posicion)
+find_first_not_of()
+find_last_not_of()
+
+
+*****Investigar que hacen las funciones find****

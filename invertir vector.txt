@@ -1,0 +1,40 @@
+#include "stdafx.h"
+#include "iostream"
+#include "cstdio"
+#include "stdlib.h"
+#include "conio.h"
+using namespace std;
+int main()
+{
+	int *V, t;
+	int i;
+	int aux;
+
+	
+	do {
+		cout << "Ingrese el numero de elementos del vector que desea invertir" << endl;
+		cin >> t;
+	} while (t < 1);
+
+	V = new int[t];
+	for (i = 0; i < t; i++)
+	{
+		cout << "V[" << i + 1 << "]=";
+		cin >> V[i];
+	}
+	for (i = 0; i < (t / 2); i++)
+	{
+		aux = V[i];
+		V[i] = V[t - 1 - i];
+		V[t - 1 - i] = aux;
+	}
+	cout << "El vector invertido es:" << endl;
+	for (i = 0; i < t; i++)
+	{
+	cout << "V[" << i + 1 << "]=" << V[i] << endl;
+	}
+	
+	
+	_getch();
+	return 0;
+}

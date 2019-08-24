@@ -1,0 +1,54 @@
+#include "stdafx.h"
+#include "iostream"
+#include "cstdio"
+#include "stdlib.h"
+#include "conio.h"
+using namespace std;
+int main()
+{
+	int *num, t;
+	int i, j, aux;
+	do {
+		cout << "Ingrese la cantidad de elementos del vector" << endl;
+		cin >> t;
+	} while (t < 1);
+	num = new int[t];
+	for (i = 0; i < t; i++) //*Bucle para pedir los elementos del vector*//
+	{
+		cout << "V[" << i + 1 << "]=";
+		cin >> num[i];
+	}
+	//*Metodo de la burbuja*//
+	for (i = 0; i<t; i++) {
+		for (j = 0; j<t - 1; j++) {    //*num[j]=numero actual y num[j+1]=numero siguiente*//
+			if (num[j]>num[j + 1]) {
+				aux = num[j];
+				num[j] = num[j + 1];
+				num[j + 1] = aux;
+			}
+		}
+	}
+	cout << "Orden ascendente:";
+	for (i = 0; i < t; i++)
+	{
+		cout << num[i] << " ";
+	}
+	for (i = 0; i<t; i++) {
+		for (j = 0; j<t - 1; j++) {    //*num[j]=numero actual y num[j+1]=numero siguiente*//
+			if (num[j]<num[j + 1]) {
+				aux = num[j];
+				num[j] = num[j + 1];
+				num[j + 1] = aux;
+			}
+		}
+	}
+	cout << "Orden descendente:";
+	for (i = 0; i < t; i++)
+	{
+		cout << num[i] << " ";
+	}
+	
+	cout << "\n";
+	_getch();
+    return 0;
+}

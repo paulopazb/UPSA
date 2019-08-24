@@ -1,0 +1,38 @@
+#include "stdafx.h"
+#include "iostream"
+#include "cstdio"
+#include "stdlib.h"
+#include "conio.h"
+using namespace std;
+int main()
+{
+	int *V, t;
+	int suma=0;
+	int mayor=0,menor=100000, diferencia;
+	
+	do {
+		cout << "Ingrese la cantidad de elementos del vector" << endl;
+		cin >> t;
+	} while (t < 1);
+	V = new int[t];
+	
+	for (int i = 0; i < t; i++)
+	{
+		cout << "V[" << i +1 << "]=";
+		cin >> V[i];
+	}
+	for (int i = 0; i< t; i++)
+	{
+		if (V[i] > mayor)
+		mayor = V[i];
+		
+		if (V[i] < menor)
+		menor = V[i];
+		diferencia = abs(mayor - menor);
+	}
+	cout << "El mayor numero del vector es" << mayor << endl;
+	cout << "El menor numero del vector es" << menor << endl;
+	cout << "La diferencia entre el mayor y el menor es:" << diferencia << endl;
+	_getch();
+    return 0;
+}
