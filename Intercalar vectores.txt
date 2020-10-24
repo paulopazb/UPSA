@@ -5,8 +5,7 @@
 #define MAX 50
 using namespace std;
 
-void cargar_A(int A[], int t1);
-void cargar_B(int B[], int t2);
+void cargar(int A[], int t1);
 void intercalarA_B(int C[], int A[], int B[], int t1, int t2);
 
 void main()
@@ -17,19 +16,19 @@ void main()
 		cout << "Ingrese la cantidad de elementos del vector A" << endl;
 		cin >> t1;
 	} while (t1<1);
-	cargar_A(A, t1);
+	cargar(A, t1);
 
 	do {
 		cout << "Ingrese la cantidad de elementos del vector B" << endl;
 		cin >> t2;
 	} while (t2<1);
-	cargar_B(B, t2);
+	cargar(B, t2);
 	intercalarA_B( C,A, B, t1, t2);
 	_getch();
 
 }
 
-void cargar_A(int A[], int t1)
+void cargar(int A[], int t1)  // Carga el vector y ordena sus elementos
 {
 	int aux,j;
 	for (int i = 0; i <t1; i++)
@@ -47,24 +46,7 @@ void cargar_A(int A[], int t1)
 		}
 	}
 }
-void cargar_B(int B[], int t2)
-{
-	int j, aux;
-	for (int i = 0; i < t2; i++)
-	{
-		cout << "v[" << i + 1 << "]=";
-		cin >> B[i];
-	}
-	for (int i = 0; i<t2; i++) {
-		for (j = 0; j<t2 - 1; j++) {
-			if (B[j]>B[j + 1]) {
-				aux = B[j];
-				B[j] = B[j + 1];
-				B[j + 1] = aux;
-			}
-		}
-	}
-}
+
 void intercalarA_B(int C[], int A[], int B[],int t1, int t2)
 {
 	int p;
